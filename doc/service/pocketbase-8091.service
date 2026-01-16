@@ -1,0 +1,15 @@
+[Unit]
+Description=PocketBase 8091 Service
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+WorkingDirectory=/var/www/HN-PB-Next/pocketbase
+ExecStart=/var/www/HN-PB-Next/pocketbase/base serve --http="0.0.0.0:8091"
+Restart=always
+RestartSec=5
+Environment=POCKETBASE_DATA_DIR=/var/www/HN-PB-Next/pocketbase/pb_data
+
+[Install]
+WantedBy=multi-user.target

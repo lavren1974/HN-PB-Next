@@ -1,0 +1,7 @@
+{
+    "update_interval_min_seconds": 50,
+    "update_interval_max_seconds": 70,
+    "stories_limit": 500,
+    "hn_api_url": "https://hacker-news.firebaseio.com/v0",
+    "max_saved_stories": 10000
+}

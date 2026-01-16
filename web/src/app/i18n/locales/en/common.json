@@ -1,0 +1,146 @@
+{
+  "nav": {
+    "home": "Home",
+    "dashboard": "Dashboard",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Log out",
+    "about": "About",
+    "hackernews": "Hacker News",
+    "deferred": "Deferred"
+  },
+  "homePage": {
+    "title": "Stay Updated with the Tech World",
+    "subtitle": "A modern, fast, and feature-rich Hacker News reader built with Next.js and PocketBase.",
+    "cta": "Start Reading",
+    "loggedInAs": "Welcome back, {{email}}",
+    "features": {
+      "feed": {
+        "title": "Live Stories",
+        "description": "Browse the latest top stories from Hacker News with a clean, responsive interface."
+      },
+      "favorites": {
+        "title": "Save Favorites",
+        "description": "Create your personal collection of must-read articles. Never lose track of a good story."
+      },
+      "deferred": {
+        "title": "Read Later",
+        "description": "Don't have time now? Save posts to your deferred list and read them when you're ready."
+      },
+      "tech": {
+        "title": "Modern Stack",
+        "description": "Powered by Next.js 16, PocketBase, Tailwind CSS, and daisyUI for a premium experience."
+      }
+    }
+  },
+  "auth": {
+    "register": "Register",
+    "login": "Login",
+    "email": "Email",
+    "emailPlaceholder": "Enter your email",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "confirmPassword": "Confirm Password",
+    "confirmPasswordPlaceholder": "Confirm your password",
+    "loginError": "Incorrect email or password",
+    "name": {
+      "label": "Name",
+      "placeholder": "Enter your name",
+      "tooShort": "Name must be at least 4 characters long",
+      "taken": "This name is already taken",
+      "available": "This name is available",
+      "checkError": "Error checking name availability"
+    },
+    "registrationFailed": "Registration failed",
+    "errors": {
+      "This name is already taken": "This name is already taken",
+      "This email is already registered": "This email is already registered",
+      "Invalid email or password": "Invalid email or password",
+      "Passwords do not match": "Passwords do not match",
+      "Password must be at least 8 characters long": "Password must be at least 8 characters long",
+      "Values don't match": "Values don't match"
+    }
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "settings": "Settings",
+    "authRequired": "Authentication Required",
+    "loginToAccess": "Please log in to access your dashboard.",
+    "settingsModal": {
+      "title": "Settings",
+      "success": "Profile updated successfully!",
+      "changePassword": "Change Password (Optional)",
+      "currentPassword": "Current Password",
+      "currentPasswordPlaceholder": "Enter current password",
+      "newPassword": "New Password",
+      "newPasswordPlaceholder": "Enter new password",
+      "confirmNewPassword": "Confirm New Password",
+      "confirmNewPasswordPlaceholder": "Confirm new password",
+      "update": "Update Profile",
+      "updating": "Updating...",
+      "cancel": "Cancel",
+      "unexpectedError": "An unexpected error occurred"
+    },
+    "serverInfo": "Server Information",
+    "clientInfo": "Client Information",
+    "recentActivity": "Recent Activity",
+    "profile": "Profile",
+    "sessions": "Sessions",
+    "activity": "Activity",
+    "accountInfo": {
+      "title": "Account Information",
+      "name": "Name",
+      "email": "Email",
+      "id": "ID"
+    },
+    "dangerZone": {
+      "title": "Danger Zone",
+      "deleteButton": "Delete Account",
+      "confirmMessage": "Are you sure you want to delete your account? This will permanently delete all your favorites and account data. This action cannot be undone.",
+      "confirmDelete": "Yes, Delete My Account",
+      "cancel": "Cancel"
+    },
+    "errors": {
+      "deleteUnexpected": "An unexpected error occurred while deleting your account"
+    }
+  },
+  "footer": {
+    "about": "About Us",
+    "description": "A modern authentication system built with Next.js and PocketBase. Secure, fast, and easy to use.",
+    "quickLinks": "Quick Links",
+    "resources": "Resources",
+    "connect": "Connect With Us",
+    "emailUs": "Email Us",
+    "copyright": "© {{year}} HN-PB-Next. All rights reserved."
+  },
+  "pagination": {
+    "previous": "Previous",
+    "next": "Next",
+    "first": "First",
+    "last": "Last",
+    "showing": "Showing {{start}}-{{end}} of {{total}}"
+  },
+  "favorites": {
+    "title": "Favorites",
+    "empty": "No favorites yet. Go to Hacker News and star some stories!",
+    "add": "Add to favorites",
+    "remove": "Remove from favorites",
+    "description": "Your collection of saved stories."
+  },
+  "deferred": {
+    "title": "Deferred",
+    "empty": "No deferred posts yet. Add some to read later!",
+    "add": "Read later",
+    "remove": "Remove from deferred",
+    "description": "Your collection of posts to read later."
+  },
+  "hackernewsPage": {
+    "title": "Hacker News",
+    "description": "The latest stories from the tech world, fresh from the API.",
+    "empty": "No stories found. The API might be down or rate-limited."
+  },
+  "story": {
+    "points": "points",
+    "comments": "comments"
+  }
+}

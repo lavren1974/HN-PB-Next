@@ -1,0 +1,4 @@
+/web/.env.local
+/web/.env
+/pocketbase
+*.exe

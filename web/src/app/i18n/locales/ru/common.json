@@ -1,0 +1,142 @@
+{
+  "nav": {
+    "home": "Главная",
+    "dashboard": "Личный кабинет",
+    "login": "Войти",
+    "register": "Регистрация",
+    "logout": "Выйти",
+    "about": "О нас",
+    "hackernews": "Hacker News",
+    "deferred": "Отложенное"
+  },
+  "homePage": {
+    "title": "Будьте в курсе новостей IT",
+    "subtitle": "Современный, быстрый и удобный Hacker News ридер, созданный на Next.js и PocketBase.",
+    "cta": "Читать новости",
+    "loggedInAs": "С возвращением, {{email}}",
+    "features": {
+      "feed": {
+        "title": "Свежие истории",
+        "description": "Просматривайте последние популярные истории с Hacker News в удобном интерфейсе."
+      },
+      "favorites": {
+        "title": "Избранное",
+        "description": "Создайте свою коллекцию интересных статей. Сохраняйте лучшее, чтобы не потерять."
+      },
+      "tech": {
+        "title": "Технологии",
+        "description": "Работает на Next.js 16, PocketBase, Tailwind CSS и daisyUI для максимальной производительности."
+      }
+    }
+  },
+  "auth": {
+    "login": "Вход",
+    "register": "Создать аккаунт",
+    "email": "Email",
+    "emailPlaceholder": "Введите ваш email",
+    "password": "Пароль",
+    "passwordPlaceholder": "Введите ваш пароль",
+    "confirmPassword": "Подтверждение пароля",
+    "confirmPasswordPlaceholder": "Повторите пароль",
+    "loginError": "Неверный email или пароль",
+    "name": {
+      "label": "Имя",
+      "placeholder": "Введите ваше имя",
+      "tooShort": "Имя должно быть не короче 4 символов",
+      "taken": "Это имя уже занято",
+      "available": "Это имя доступно",
+      "checkError": "Ошибка проверки имени"
+    },
+    "registrationFailed": "Ошибка регистрации",
+    "errors": {
+      "This name is already taken": "Это имя уже занято",
+      "This email is already registered": "Этот email уже зарегистрирован",
+      "Invalid email or password": "Неверный email или пароль",
+      "Passwords do not match": "Пароли не совпадают",
+      "Password must be at least 8 characters long": "Пароль должен быть не короче 8 символов",
+      "Values don't match": "Значения не совпадают"
+    }
+  },
+  "dashboard": {
+    "title": "Личный кабинет",
+    "settings": "Настройки",
+    "authRequired": "Требуется авторизация",
+    "loginToAccess": "Пожалуйста, войдите, чтобы получить доступ к панели управления.",
+    "settingsModal": {
+      "title": "Настройки",
+      "success": "Профиль успешно обновлен!",
+      "changePassword": "Сменить пароль (необязательно)",
+      "currentPassword": "Текущий пароль",
+      "currentPasswordPlaceholder": "Введите текущий пароль",
+      "newPassword": "Новый пароль",
+      "newPasswordPlaceholder": "Введите новый пароль",
+      "confirmNewPassword": "Подтверждение пароля",
+      "confirmNewPasswordPlaceholder": "Подтвердите новый пароль",
+      "update": "Обновить профиль",
+      "updating": "Обновление...",
+      "cancel": "Отмена",
+      "unexpectedError": "Произошла непредвиденная ошибка"
+    },
+    "serverInfo": "Информация о сервере",
+    "clientInfo": "Информация о клиенте",
+    "recentActivity": "Недавняя активность",
+    "profile": "Профиль",
+    "sessions": "Сессии",
+    "activity": "Активность",
+    "accountInfo": {
+      "title": "Информация об аккаунте",
+      "name": "Имя",
+      "email": "Email",
+      "id": "ID"
+    },
+    "dangerZone": {
+      "title": "Опасная зона",
+      "deleteButton": "Удалить аккаунт",
+      "confirmMessage": "Вы уверены, что хотите удалить свой аккаунт? Это действие необратимо и приведет к удалению всех ваших данных.",
+      "confirmDelete": "Да, удалить мой аккаунт",
+      "cancel": "Отмена"
+    },
+    "errors": {
+      "deleteUnexpected": "Произошла непредвиденная ошибка при удалении аккаунта"
+    }
+  },
+  "footer": {
+    "about": "О нас",
+    "description": "Современная система аутентификации на Next.js и PocketBase. Безопасно, быстро и просто.",
+    "quickLinks": "Быстрые ссылки",
+    "resources": "Ресурсы",
+    "connect": "Связаться с нами",
+    "emailUs": "Написать нам",
+    "copyright": "© {{year}} HN-PB-Next. Все права защищены."
+  },
+  "pagination": {
+    "previous": "Назад",
+    "next": "Вперед",
+    "first": "В начало",
+    "last": "В конец",
+    "showing": "Показано {{start}}-{{end}} из {{total}}"
+  },
+  "favorites": {
+    "title": "Избранное",
+    "empty": "В избранном пока пусто. Перейдите в Hacker News и отметьте интересные статьи!",
+    "add": "Добавить в избранное",
+    "remove": "Убрать из избранного",
+    "description": "Ваша коллекция сохраненных историй."
+  },
+  "deferred": {
+    "title": "Отложенное",
+    "empty": "В отложенном пока пусто. Добавьте что-нибудь, чтобы прочитать позже!",
+    "add": "Читать позже",
+    "remove": "Убрать из отложенного",
+    "description": "Ваша коллекция постов для чтения позже."
+  },
+  "hackernewsPage": {
+    "title": "Hacker News",
+    "description": "Последние истории из мира технологий, прямиком из API.",
+    "empty": "Истории не найдены. Возможно, API недоступен или превышен лимит запросов."
+  },
+  "story": {
+    "points": "очков",
+    "comments": "комментариев"
+  }
+}

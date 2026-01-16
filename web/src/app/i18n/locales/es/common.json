@@ -1,0 +1,114 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "dashboard": "Panel",
+    "login": "Iniciar sesión",
+    "register": "Registrarse",
+    "logout": "Cerrar sesión",
+    "about": "About",
+    "hackernews": "Hacker News",
+    "deferred": "Leer más tarde"
+  },
+  "auth": {
+    "register": "Registrarse",
+    "login": "Iniciar sesión",
+    "email": "Correo electrónico",
+    "emailPlaceholder": "Ingrese su correo electrónico",
+    "password": "Contraseña",
+    "passwordPlaceholder": "Ingrese su contraseña",
+    "confirmPassword": "Confirmar contraseña",
+    "confirmPasswordPlaceholder": "Confirme su contraseña",
+    "name": {
+      "label": "Nombre",
+      "placeholder": "Ingrese su nombre",
+      "tooShort": "El nombre debe tener al menos 4 caracteres",
+      "taken": "Este nombre ya está en uso",
+      "available": "Este nombre está disponible",
+      "checkError": "Error al verificar la disponibilidad del nombre"
+    },
+    "registrationFailed": "Error en el registro",
+    "errors": {
+      "This name is already taken": "Este nombre ya está en uso",
+      "This email is already registered": "Este correo ya está registrado",
+      "Invalid email or password": "Correo o contraseña inválidos",
+      "Passwords do not match": "Las contraseñas no coinciden",
+      "Password must be at least 8 characters long": "La contraseña debe tener al menos 8 caracteres",
+      "Values don't match": "Los valores no coinciden"
+    }
+  },
+  "dashboard": {
+    "title": "Panel",
+    "settings": "Ajustes",
+    "serverInfo": "Información del servidor",
+    "clientInfo": "Información del cliente",
+    "recentActivity": "Actividad reciente",
+    "profile": "Perfil",
+    "sessions": "Sesiones",
+    "activity": "Actividad",
+    "accountInfo": {
+      "title": "Información de la cuenta",
+      "name": "Nombre",
+      "email": "Correo electrónico",
+      "id": "ID"
+    },
+    "dangerZone": {
+      "title": "Zona de peligro",
+      "deleteButton": "Eliminar cuenta",
+      "confirmMessage": "¿Está seguro de que desea eliminar su cuenta? Esto eliminará permanentemente todos sus viajes, tareas y datos de cuenta. Esta acción no se puede deshacer.",
+      "confirmDelete": "Sí, eliminar mi cuenta",
+      "cancel": "Cancelar"
+    },
+    "errors": {
+      "deleteUnexpected": "Ocurrió un error inesperado al eliminar su cuenta"
+    },
+    "authRequired": "Autenticación requerida",
+    "loginToAccess": "Por favor inicie sesión para acceder a su panel.",
+    "settingsModal": {
+      "title": "Ajustes",
+      "success": "¡Perfil actualizado con éxito!",
+      "changePassword": "Cambiar contraseña (Opcional)",
+      "currentPassword": "Contraseña actual",
+      "currentPasswordPlaceholder": "Ingrese contraseña actual",
+      "newPassword": "Nueva contraseña",
+      "newPasswordPlaceholder": "Ingrese nueva contraseña",
+      "confirmNewPassword": "Confirmar nueva contraseña",
+      "confirmNewPasswordPlaceholder": "Confirme nueva contraseña",
+      "update": "Actualizar perfil",
+      "updating": "Actualizando...",
+      "cancel": "Cancelar",
+      "unexpectedError": "Ocurrió un error inesperado"
+    }
+  },
+  "footer": {
+    "about": "Sobre Nosotros",
+    "description": "Un sistema de autenticación moderno construido con Next.js y PocketBase. Seguro, rápido y fácil de usar.",
+    "quickLinks": "Enlaces Rápidos",
+    "resources": "Recursos",
+    "connect": "Conéctate con Nosotros",
+    "emailUs": "Envíanos un Email",
+    "copyright": "© {{year}} HN-PB-Next. Todos los derechos reservados."
+  },
+  "favorites": {
+    "title": "Favoritos",
+    "empty": "No hay favoritos. ¡Vaya a Hacker News y marque algunas historias!",
+    "add": "Añadir a favoritos",
+    "remove": "Quitar de favoritos",
+    "description": "Su colección de historias guardadas."
+  },
+  "deferred": {
+    "title": "Leer más tarde",
+    "empty": "No hay publicaciones diferidas. ¡Añada algunas para leer más tarde!",
+    "add": "Leer más tarde",
+    "remove": "Quitar de leer más tarde",
+    "description": "Su colección de publicaciones para leer más tarde."
+  },
+  "hackernewsPage": {
+    "title": "Hacker News",
+    "description": "Las últimas historias del mundo tecnológico, frescas desde la API.",
+    "empty": "No se encontraron historias. La API podría no estar disponible."
+  },
+  "story": {
+    "points": "puntos",
+    "comments": "comentarios"
+  }
+}

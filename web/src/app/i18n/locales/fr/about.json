@@ -1,0 +1,31 @@
+{
+    "about": {
+        "title": "À propos de ce projet",
+        "description": "Un lecteur Hacker News moderne",
+        "mission": {
+            "title": "L'objectif",
+            "text": "Ce projet présente un modèle d'utilisation d'application web moderne et performant combinant Next.js 16 (App Router) avec PocketBase pour un backend léger mais puissant."
+        },
+        "features": {
+            "title": "Fonctionnalités",
+            "list": {
+                "1": "Next.js 16 et React Server Components",
+                "2": "Authentification et Base de données PocketBase",
+                "3": "Flux Hacker News en temps réel",
+                "4": "Favoris personnalisés et À lire plus tard"
+            }
+        },
+        "contact": {
+            "title": "Open Source",
+            "text": "Ce projet est open source. Vous pouvez voir le code, contribuer ou le forker sur GitHub."
+        },
+        "support": {
+            "title": "Soutenir le projet",
+            "text": "Ce projet est gratuit et open-source. Si vous le trouvez utile, vous pouvez le soutenir par un don volontaire :",
+            "crypto": {
+                "btc": "Bitcoin (BTC)",
+                "xmr": "Monero (XMR)"
+            }
+        }
+    }
+}

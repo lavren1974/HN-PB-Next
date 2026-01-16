@@ -1,0 +1,115 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "dashboard": "Tableau de bord",
+    "login": "Connexion",
+    "register": "S'inscrire",
+    "logout": "Déconnexion",
+    "about": "About",
+    "hackernews": "Hacker News",
+    "deferred": "À lire plus tard"
+  },
+  "auth": {
+    "login": "Connexion",
+    "register": "Créer un compte",
+    "email": "E-mail",
+    "emailPlaceholder": "Entrez votre e-mail",
+    "password": "Mot de passe",
+    "passwordPlaceholder": "Entrez votre mot de passe",
+    "confirmPassword": "Confirmez le mot de passe",
+    "confirmPasswordPlaceholder": "Confirmez votre mot de passe",
+    "loginError": "E-mail ou mot de passe incorrect",
+    "registrationFailed": "L'inscription a échoué",
+    "name": {
+      "label": "Nom",
+      "placeholder": "Entrez votre nom",
+      "tooShort": "Le nom doit contenir au moins 4 caractères",
+      "taken": "Ce nom est déjà pris",
+      "available": "Ce nom est disponible",
+      "checkError": "Erreur lors de la vérification du nom"
+    },
+    "errors": {
+      "This name is already taken": "Ce nom est déjà pris",
+      "This email is already registered": "Cette adresse e-mail est déjà enregistrée",
+      "Invalid email or password": "E-mail ou mot de passe incorrect",
+      "Passwords do not match": "Les mots de passe ne correspondent pas",
+      "Password must be at least 8 characters long": "Le mot de passe doit contenir au moins 8 caractères",
+      "Values don't match": "Les valeurs ne correspondent pas"
+    }
+  },
+  "dashboard": {
+    "title": "Tableau de bord",
+    "settings": "Paramètres",
+    "serverInfo": "Informations du serveur",
+    "clientInfo": "Informations client",
+    "recentActivity": "Activité récente",
+    "profile": "Profil",
+    "sessions": "Sessions",
+    "activity": "Activité",
+    "accountInfo": {
+      "title": "Informations du compte",
+      "name": "Nom",
+      "email": "E-mail",
+      "id": "ID"
+    },
+    "dangerZone": {
+      "title": "Zone de danger",
+      "deleteButton": "Supprimer le compte",
+      "confirmMessage": "Êtes-vous sûr de vouloir supprimer votre compte ? Cela supprimera définitivement tous vos voyages, tâches et données de compte. Cette action ne peut pas être annulée.",
+      "confirmDelete": "Oui, supprimer mon compte",
+      "cancel": "Annuler"
+    },
+    "errors": {
+      "deleteUnexpected": "Une erreur inattendue s'est produite lors de la suppression de votre compte"
+    },
+    "authRequired": "Authentification requise",
+    "loginToAccess": "Veuillez vous connecter pour accéder à votre tableau de bord.",
+    "settingsModal": {
+      "title": "Paramètres",
+      "success": "Profil mis à jour avec succès !",
+      "changePassword": "Changer le mot de passe (Optionnel)",
+      "currentPassword": "Mot de passe actuel",
+      "currentPasswordPlaceholder": "Entrez le mot de passe actuel",
+      "newPassword": "Nouveau mot de passe",
+      "newPasswordPlaceholder": "Entrez le nouveau mot de passe",
+      "confirmNewPassword": "Confirmer le nouveau mot de passe",
+      "confirmNewPasswordPlaceholder": "Confirmez le nouveau mot de passe",
+      "update": "Mettre à jour le profil",
+      "updating": "Mise à jour...",
+      "cancel": "Annuler",
+      "unexpectedError": "Une erreur inattendue est survenue"
+    }
+  },
+  "footer": {
+    "about": "À propos",
+    "description": "Un système d'authentification moderne construit avec Next.js et PocketBase",
+    "quickLinks": "Liens rapides",
+    "resources": "Ressources",
+    "connect": "Nous contacter",
+    "emailUs": "Envoyez-nous un e-mail",
+    "copyright": "© {{year}} HN-PB-Next. Tous droits réservés."
+  },
+  "favorites": {
+    "title": "Favoris",
+    "empty": "Pas encore de favoris. Allez sur Hacker News et marquez des histoires !",
+    "add": "Ajouter aux favoris",
+    "remove": "Retirer des favoris",
+    "description": "Votre collection d'histoires sauvegardées."
+  },
+  "deferred": {
+    "title": "Différé",
+    "empty": "Pas encore de messages. Ajoutez-en pour les lire plus tard !",
+    "add": "Lire plus tard",
+    "remove": "Retirer du différé",
+    "description": "Votre collection de messages à lire plus tard."
+  },
+  "hackernewsPage": {
+    "title": "Hacker News",
+    "description": "Les dernières histoires du monde de la technologie, tout droit de l'API.",
+    "empty": "Aucune histoire trouvée. L'API pourrait être indisponible."
+  },
+  "story": {
+    "points": "points",
+    "comments": "commentaires"
+  }
+}
