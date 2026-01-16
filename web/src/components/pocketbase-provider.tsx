@@ -40,16 +40,12 @@ export function PocketBaseProvider({
     }
 
     authRefresh();
-  }, [initialToken, initialUser]);
 
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      clientRef.current.authStore.loadFromCookie(document.cookie);
-      clientRef.current.authStore.onChange(() => {
-        document.cookie = clientRef.current.authStore.exportToCookie({ httpOnly: false });
-      });
-    }
-  }, []);
+    // Refresh the token periodically (every 5 minutes) to avoid expiration
+    const interval = setInterval(authRefresh, 5 * 60 * 1000);
+
+    return () => clearInterval(interval);
+  }, [initialToken, initialUser]);
 
   return (
     <PocketBaseContext.Provider value={clientRef.current}>

@@ -15,7 +15,7 @@ export async function updateSession(request: NextRequest) {
         response = NextResponse.next({
           request,
         });
-        response.cookies.set(COOKIE_NAME, serializedPayload);
+        response.cookies.set(COOKIE_NAME, serializedPayload, { maxAge: 2592000 }); // 30 days
       },
       clear: async () => {
         request.cookies.delete(COOKIE_NAME);

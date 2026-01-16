@@ -13,7 +13,7 @@ export async function createServerClient() {
     new AsyncAuthStore({
       save: async (serializedPayload) => {
         try {
-          cookieStore.set(COOKIE_NAME, serializedPayload);
+          cookieStore.set(COOKIE_NAME, serializedPayload, { maxAge: 2592000 }); // 30 days
         } catch {
           // This method was called from a Server Component.
           // This can be ignored if you have middleware refreshing

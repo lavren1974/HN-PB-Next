@@ -8,6 +8,7 @@ import { languages } from '../i18n/settings';
 import { Geist, Geist_Mono } from "next/font/google";
 import type { Metadata } from "next";
 import { I18nProvider } from '@/components/providers/i18n-client-provider'
+import Script from "next/script";
 import "../globals.css";
 
 
@@ -58,6 +59,23 @@ export default async function RootLayout({
     >
       <head>
         <meta name="darkreader-lock" />
+        <Script
+          src="https://stats.mystack.host/js/pa-K7CZVzE-vlA0kNCrzujp7.js"
+          strategy="afterInteractive"
+        />
+
+        {/* Plausible init */}
+        <Script id="plausible-init" strategy="afterInteractive">
+          {`
+            window.plausible = window.plausible || function () {
+              (plausible.q = plausible.q || []).push(arguments);
+            };
+            plausible.init = plausible.init || function (i) {
+              plausible.o = i || {};
+            };
+            plausible.init();
+          `}
+        </Script>
       </head>
       <body className="min-h-screen flex flex-col bg-base-100" suppressHydrationWarning>
         <I18nProvider lng={lng} namespaces={['common']}>
