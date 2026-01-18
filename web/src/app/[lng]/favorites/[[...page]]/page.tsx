@@ -1,7 +1,7 @@
 import { createServerClient } from "@/lib/pocketbase/server";
 import { FavoriteButton } from "@/components/ui/favorite-button";
 import { formatDateTime } from "@/lib/utils";
-import { ExternalLink, Clock, User, ChevronsLeft, ChevronLeft, ChevronRight, ChevronsRight } from "lucide-react";
+import { ExternalLink, Clock, User, ChevronsLeft, ChevronLeft, ChevronRight, ChevronsRight, MessageSquare } from "lucide-react";
 import { useTranslation } from "../../../i18n";
 import { redirect } from "next/navigation";
 import Link from "next/link";
@@ -117,6 +117,15 @@ export default async function FavoritesPage({
                                                     <Clock className="h-4 w-4" />
                                                     {formatDateTime(fav.postedAt || fav.created)}
                                                 </span>
+                                                <a
+                                                    href={`https://news.ycombinator.com/item?id=${fav.storyId}`}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="flex items-center gap-1 hover:text-primary transition-colors"
+                                                >
+                                                    <MessageSquare className="h-4 w-4" />
+                                                    {t('story.comments')}
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
@@ -128,68 +137,70 @@ export default async function FavoritesPage({
             </div>
 
             {/* Pagination Controls */}
-            {total > 0 && (
-                <div className="flex flex-col sm:flex-row items-center justify-between p-4 bg-base-200 rounded-lg shadow-sm border border-base-300 gap-4">
-                    <div className="text-sm text-base-content/70">
-                        {t('pagination.showing', { start, end, total })}
-                    </div>
-
-                    <div className="flex items-center gap-2">
-                        {/* First Page */}
-                        <Link
-                            href={getPageLink(1)}
-                            className={`btn btn-sm ${currentPage === 1 ? 'btn-disabled opacity-50' : 'btn-outline'}`}
-                            aria-disabled={currentPage === 1}
-                            tabIndex={currentPage === 1 ? -1 : undefined}
-                            title={t('pagination.first')}
-                        >
-                            <ChevronsLeft className="h-4 w-4" />
-                            <span className="hidden sm:inline">{t('pagination.first')}</span>
-                        </Link>
-
-                        {/* Previous Page */}
-                        <Link
-                            href={getPageLink(currentPage - 1)}
-                            className={`btn btn-sm ${!hasPrevious ? 'btn-disabled opacity-50' : 'btn-outline'}`}
-                            aria-disabled={!hasPrevious}
-                            tabIndex={!hasPrevious ? -1 : undefined}
-                            title={t('pagination.previous')}
-                        >
-                            <ChevronLeft className="h-4 w-4" />
-                            <span className="hidden sm:inline">{t('pagination.previous')}</span>
-                        </Link>
-
-                        {/* Current Page Indicator */}
-                        <div className="btn btn-sm btn-ghost no-animation cursor-default font-bold">
-                            {currentPage}
+            {
+                total > 0 && (
+                    <div className="flex flex-col sm:flex-row items-center justify-between p-4 bg-base-200 rounded-lg shadow-sm border border-base-300 gap-4">
+                        <div className="text-sm text-base-content/70">
+                            {t('pagination.showing', { start, end, total })}
                         </div>
 
-                        {/* Next Page */}
-                        <Link
-                            href={getPageLink(currentPage + 1)}
-                            className={`btn btn-sm ${!hasNext ? 'btn-disabled opacity-50' : 'btn-outline'}`}
-                            aria-disabled={!hasNext}
-                            tabIndex={!hasNext ? -1 : undefined}
-                            title={t('pagination.next')}
-                        >
-                            <span className="hidden sm:inline">{t('pagination.next')}</span>
-                            <ChevronRight className="h-4 w-4" />
-                        </Link>
+                        <div className="flex items-center gap-2">
+                            {/* First Page */}
+                            <Link
+                                href={getPageLink(1)}
+                                className={`btn btn-sm ${currentPage === 1 ? 'btn-disabled opacity-50' : 'btn-outline'}`}
+                                aria-disabled={currentPage === 1}
+                                tabIndex={currentPage === 1 ? -1 : undefined}
+                                title={t('pagination.first')}
+                            >
+                                <ChevronsLeft className="h-4 w-4" />
+                                <span className="hidden sm:inline">{t('pagination.first')}</span>
+                            </Link>
 
-                        {/* Last Page */}
-                        <Link
-                            href={getPageLink(totalPages)}
-                            className={`btn btn-sm ${currentPage === totalPages ? 'btn-disabled opacity-50' : 'btn-outline'}`}
-                            aria-disabled={currentPage === totalPages}
-                            tabIndex={currentPage === totalPages ? -1 : undefined}
-                            title={t('pagination.last')}
-                        >
-                            <span className="hidden sm:inline">{t('pagination.last')}</span>
-                            <ChevronsRight className="h-4 w-4" />
-                        </Link>
+                            {/* Previous Page */}
+                            <Link
+                                href={getPageLink(currentPage - 1)}
+                                className={`btn btn-sm ${!hasPrevious ? 'btn-disabled opacity-50' : 'btn-outline'}`}
+                                aria-disabled={!hasPrevious}
+                                tabIndex={!hasPrevious ? -1 : undefined}
+                                title={t('pagination.previous')}
+                            >
+                                <ChevronLeft className="h-4 w-4" />
+                                <span className="hidden sm:inline">{t('pagination.previous')}</span>
+                            </Link>
+
+                            {/* Current Page Indicator */}
+                            <div className="btn btn-sm btn-ghost no-animation cursor-default font-bold">
+                                {currentPage}
+                            </div>
+
+                            {/* Next Page */}
+                            <Link
+                                href={getPageLink(currentPage + 1)}
+                                className={`btn btn-sm ${!hasNext ? 'btn-disabled opacity-50' : 'btn-outline'}`}
+                                aria-disabled={!hasNext}
+                                tabIndex={!hasNext ? -1 : undefined}
+                                title={t('pagination.next')}
+                            >
+                                <span className="hidden sm:inline">{t('pagination.next')}</span>
+                                <ChevronRight className="h-4 w-4" />
+                            </Link>
+
+                            {/* Last Page */}
+                            <Link
+                                href={getPageLink(totalPages)}
+                                className={`btn btn-sm ${currentPage === totalPages ? 'btn-disabled opacity-50' : 'btn-outline'}`}
+                                aria-disabled={currentPage === totalPages}
+                                tabIndex={currentPage === totalPages ? -1 : undefined}
+                                title={t('pagination.last')}
+                            >
+                                <span className="hidden sm:inline">{t('pagination.last')}</span>
+                                <ChevronsRight className="h-4 w-4" />
+                            </Link>
+                        </div>
                     </div>
-                </div>
-            )}
-        </div>
+                )
+            }
+        </div >
     );
 }
