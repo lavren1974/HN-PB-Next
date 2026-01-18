@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import PocketBase from "pocketbase";
+import PocketBase, { ClientResponseError } from "pocketbase";
 import { COOKIE_NAME } from "./server";
 import { SyncAuthStore } from "./stores/sync-auth-store";
 import { TypedPocketBase } from "./types";
@@ -34,7 +34,9 @@ export async function updateSession(request: NextRequest) {
       await client.collection("users").authRefresh();
     } catch (error) {
       console.error('Auth refresh error:', error);
-      client.authStore.clear();
+      if (error instanceof ClientResponseError && error.status === 401) {
+        client.authStore.clear();
+      }
     }
   }
 

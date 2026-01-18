@@ -2,7 +2,7 @@ import { formatDateTime } from "@/lib/utils";
 import { getLatestStories } from "@/lib/hackernews";
 import Link from "next/link";
 import { ExternalLink, MessageCircle, Clock, User, ArrowUpCircle, ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from "lucide-react";
-import { useTranslation } from "../../i18n";
+import { useTranslation } from "../../../i18n";
 import { FavoriteButton } from "@/components/ui/favorite-button";
 import { DeferredButton } from "@/components/ui/deferred-button";
 import { getFavoritesMap } from "@/lib/actions/favorites";
@@ -15,16 +15,19 @@ import { AutoRefresh } from "@/components/ui/auto-refresh";
 
 export default async function HackerNewsPage({
     params,
-    searchParams,
 }: {
-    params: Promise<{ lng: string }>;
-    searchParams: Promise<{ page?: string }>;
+    params: Promise<{ lng: string; page?: string[] }>;
 }) {
-    const { lng } = await params;
-    const { page } = await searchParams;
+    const { lng, page } = await params;
     const { t } = await useTranslation(lng, 'common');
 
-    const currentPage = Number(page) || 1;
+    // Handle [[...page]] parameter
+    // /hackernews -> page defaults to undefined
+    // /hackernews/2 -> page is ["2"]
+    const pageParam = page?.[0];
+    const parsedPage = pageParam ? parseInt(pageParam, 10) : 1;
+    const currentPage = isNaN(parsedPage) || parsedPage < 1 ? 1 : parsedPage;
+
     const limit = 30;
 
     const { stories, total } = await getLatestStories(currentPage, limit);
@@ -42,10 +45,15 @@ export default async function HackerNewsPage({
     const hasPrevious = currentPage > 1;
     const hasNext = currentPage < totalPages;
 
+    const getPageLink = (p: number) => {
+        if (p === 1) return `/${lng}/hackernews`;
+        return `/${lng}/hackernews/${p}`;
+    };
+
     return (
 
         <div className="container mx-auto space-y-8 animate-in fade-in duration-500">
-            <AutoRefresh intervalMs={30000} />
+            {currentPage === 1 && <AutoRefresh intervalMs={30000} />}
             <div className="flex flex-col space-y-2">
                 <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl">
                     {t('hackernewsPage.title')}
@@ -141,7 +149,7 @@ export default async function HackerNewsPage({
                 <div className="flex items-center gap-2">
                     {/* First Page */}
                     <Link
-                        href={`/${lng}/hackernews?page=1`}
+                        href={getPageLink(1)}
                         className={`btn btn-sm ${currentPage === 1 ? 'btn-disabled opacity-50' : 'btn-outline'}`}
                         aria-disabled={currentPage === 1}
                         tabIndex={currentPage === 1 ? -1 : undefined}
@@ -153,7 +161,7 @@ export default async function HackerNewsPage({
 
                     {/* Previous Page */}
                     <Link
-                        href={`/${lng}/hackernews?page=${currentPage - 1}`}
+                        href={getPageLink(currentPage - 1)}
                         className={`btn btn-sm ${!hasPrevious ? 'btn-disabled opacity-50' : 'btn-outline'}`}
                         aria-disabled={!hasPrevious}
                         tabIndex={!hasPrevious ? -1 : undefined}
@@ -170,7 +178,7 @@ export default async function HackerNewsPage({
 
                     {/* Next Page */}
                     <Link
-                        href={`/${lng}/hackernews?page=${currentPage + 1}`}
+                        href={getPageLink(currentPage + 1)}
                         className={`btn btn-sm ${!hasNext ? 'btn-disabled opacity-50' : 'btn-outline'}`}
                         aria-disabled={!hasNext}
                         tabIndex={!hasNext ? -1 : undefined}
@@ -182,7 +190,7 @@ export default async function HackerNewsPage({
 
                     {/* Last Page */}
                     <Link
-                        href={`/${lng}/hackernews?page=${totalPages}`}
+                        href={getPageLink(totalPages)}
                         className={`btn btn-sm ${currentPage === totalPages ? 'btn-disabled opacity-50' : 'btn-outline'}`}
                         aria-disabled={currentPage === totalPages}
                         tabIndex={currentPage === totalPages ? -1 : undefined}

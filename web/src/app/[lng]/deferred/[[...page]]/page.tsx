@@ -1,7 +1,7 @@
 import { createServerClient } from "@/lib/pocketbase/server";
 import { DeferredButton } from "@/components/ui/deferred-button";
 import { ExternalLink, Clock, User, ChevronsLeft, ChevronLeft, ChevronRight, ChevronsRight } from "lucide-react";
-import { useTranslation } from "../../i18n";
+import { useTranslation } from "../../../i18n";
 import { redirect } from "next/navigation";
 import { formatDateTime } from "@/lib/utils";
 import { FavoriteButton } from "@/components/ui/favorite-button";
@@ -12,13 +12,10 @@ import Link from "next/link";
 
 export default async function DeferredPage({
     params,
-    searchParams,
 }: {
-    params: Promise<{ lng: string }>;
-    searchParams: Promise<{ page?: string }>;
+    params: Promise<{ lng: string; page?: string[] }>;
 }) {
-    const { lng } = await params;
-    const { page } = await searchParams;
+    const { lng, page } = await params;
     const { t } = await useTranslation(lng, 'common');
     const client = await createServerClient();
     const user = client.authStore.record;
@@ -27,7 +24,10 @@ export default async function DeferredPage({
         redirect(`/${lng}/login`);
     }
 
-    const currentPage = Number(page) || 1;
+    const pageParam = page?.[0];
+    const parsedPage = pageParam ? parseInt(pageParam, 10) : 1;
+    const currentPage = isNaN(parsedPage) || parsedPage < 1 ? 1 : parsedPage;
+
     const limit = 30;
 
     // Fetch deferred posts with pagination
@@ -50,6 +50,11 @@ export default async function DeferredPage({
 
     const hasPrevious = currentPage > 1;
     const hasNext = currentPage < totalPages;
+
+    const getPageLink = (p: number) => {
+        if (p === 1) return `/${lng}/deferred`;
+        return `/${lng}/deferred/${p}`;
+    };
 
     return (
         <div className="container mx-auto space-y-8 animate-in fade-in duration-500">
@@ -145,7 +150,7 @@ export default async function DeferredPage({
                     <div className="flex items-center gap-2">
                         {/* First Page */}
                         <Link
-                            href={`/${lng}/deferred?page=1`}
+                            href={getPageLink(1)}
                             className={`btn btn-sm ${currentPage === 1 ? 'btn-disabled opacity-50' : 'btn-outline'}`}
                             aria-disabled={currentPage === 1}
                             tabIndex={currentPage === 1 ? -1 : undefined}
@@ -157,7 +162,7 @@ export default async function DeferredPage({
 
                         {/* Previous Page */}
                         <Link
-                            href={`/${lng}/deferred?page=${currentPage - 1}`}
+                            href={getPageLink(currentPage - 1)}
                             className={`btn btn-sm ${!hasPrevious ? 'btn-disabled opacity-50' : 'btn-outline'}`}
                             aria-disabled={!hasPrevious}
                             tabIndex={!hasPrevious ? -1 : undefined}
@@ -174,7 +179,7 @@ export default async function DeferredPage({
 
                         {/* Next Page */}
                         <Link
-                            href={`/${lng}/deferred?page=${currentPage + 1}`}
+                            href={getPageLink(currentPage + 1)}
                             className={`btn btn-sm ${!hasNext ? 'btn-disabled opacity-50' : 'btn-outline'}`}
                             aria-disabled={!hasNext}
                             tabIndex={!hasNext ? -1 : undefined}
@@ -186,7 +191,7 @@ export default async function DeferredPage({
 
                         {/* Last Page */}
                         <Link
-                            href={`/${lng}/deferred?page=${totalPages}`}
+                            href={getPageLink(totalPages)}
                             className={`btn btn-sm ${currentPage === totalPages ? 'btn-disabled opacity-50' : 'btn-outline'}`}
                             aria-disabled={currentPage === totalPages}
                             tabIndex={currentPage === totalPages ? -1 : undefined}

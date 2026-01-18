@@ -2,7 +2,7 @@
 
 import { createBrowserClient } from "@/lib/pocketbase/client";
 import { TypedPocketBase } from "@/lib/pocketbase/types";
-import { AuthRecord } from "pocketbase";
+import { AuthRecord, ClientResponseError } from "pocketbase";
 import { createContext, useContext, useEffect, useRef } from "react";
 
 const PocketBaseContext = createContext<TypedPocketBase | null>(null);
@@ -33,8 +33,12 @@ export function PocketBaseProvider({
       if (clientRef.current.authStore.isValid) {
         try {
           await clientRef.current.collection("users").authRefresh();
-        } catch {
-          clientRef.current.authStore.clear();
+        } catch (err) {
+          // Only clear the auth store if the token is invalid (401)
+          // unexpected errors (network, server 500 code) shouldn't log out the user
+          if (err instanceof ClientResponseError && err.status === 401) {
+            clientRef.current.authStore.clear();
+          }
         }
       }
     }
